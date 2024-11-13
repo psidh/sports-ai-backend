@@ -6,6 +6,13 @@ const bodyParser = require("body-parser");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const app = express();
 const port = 3000;
+app.use(
+  cors({
+    origin: "https://sports-ai-self.vercel.app",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 const showdown = require("showdown");
 app.use(bodyParser.json());
 
